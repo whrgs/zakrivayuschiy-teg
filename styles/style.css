@@ -206,7 +206,7 @@
 }
 
 .card__icon-button:focus {
-  outline: none;
+  outline:none;
 }
 
 .card__icon-button:focus-visible {
