@@ -13,8 +13,297 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block-start: 102px;
+
+  font-family: var(--main-font, sans-serif);
+  font-variation-settings: "wght" var(--normal-wght, 400);
+  line-height: normal;
+  color: var(--accent-color, #000);
+
+  background-color: var(--bg-color, #fff);
+  background-image: var(--bg-image);
+  background-size: 4px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  inline-size: clamp(320px, 100%, var(--max-wdth, 700px));
+  margin-block-end: 100px;
+  padding: clamp(120px, 32dvi, 136px) 0 25px;
+
+  font-family: var(--accent-font, fantasy);
+  font-weight: 400;
+
+  border: 2px solid var(--accent-color);
+  background-color: var(--bg-color);
+}
+
+.header__logo {
+  font-family:PressStart2P;
+  font-weight: inherit;
+  font-size: clamp(3.0625rem, 2.7292rem + 1.4815vw, 4.0625rem);
+  text-transform: uppercase;
+}
+
+.header__title {
+  padding-block-start: 20px;
+  font-family:PressStart2P;
+  font-weight: inherit;
+  font-size: clamp(0.875rem, 0.6875rem + 0.8333vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.theme-menu {
+  padding-block-start: 25px;
+  padding-inline-start: 20px;
+}
+
+.theme-menu__list {
+  font-family:PressStart2P;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.theme-menu__button {
+  position: relative;
+
+  font-family: inherit;
+  font-size: 14px;
+  text-transform: uppercase;
+
+  border: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: -5px;
+
+  inline-size: 100%;
+  block-size: 2px;
+
+  background-color: var(--accent-color);
+  opacity: 0.6;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.theme-menu__button:hover::after, 
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+
+  position: absolute;
+  inset: 0;
+  inset-inline: -20px auto;
+
+  animation: moving 0.5s infinite ease-in-out alternate;
+  /* animation-name: moving;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate; */
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 51px;
+  inline-size: clamp(320px, 100%, var(--max-wdth, 700px));
+  padding-block-end: 102px;
+}
+
+.card {
+  font-size: 18px;
+
+  border: 2px solid var(--accent-color);
+  background-color: var(--bg-color);
+}
+
+.card__title {
+  padding: 3px 10px;
+
+  font-size: inherit;
+  font-family: Inter;
+  font-variation-settings: "wght" var(--bold-wght, 700);
+  line-height: normal;
+}
+
+.card__picture {
+  object-fit: cover;
+  object-position: center;
+
+  inline-size: 100%;
+  aspect-ratio: 1/1;
+
+  border: 2px solid var(--accent-color, #000);
+}
+
+.card__content {
+  padding: 25px;
+}
+
+.card__description {
+  font-family: Inter;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+.paragraph {
+  font-variation-settings: "wght" var(--normal-wght, 400);
+  line-height: 116.667%;
+}
+
+.card__controls {
+  display: flex;
+  justify-content: end;
+  padding-block-start: 28px;
+  gap: 9px;
+}
+
+.card__icon-button {
+  block-size: 34px;
+
+  outline: 2px solid transparent;
+
+  transition: outline 0.3s ease;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+}
+
+.button {
+  position: relative;
+
+  outline: 2px solid var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+
+  background-color: var(--accent-color);
+
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  scale: 1;
+}
+
+.button:hover .button__text {
+  color: var(--bg-color);
+}
+
+.button:hover .footer__icon {
+  color: var(--bg-color);
+}
+
+.button:focus-visible {
+  box-shadow: 5px 5px 0 0 currentColor;
+}
+
+.button:focus {
+  box-shadow: 5px 5px 0 0 currentColor;
+}
+
+.button:focus-within {
+  box-shadow: 5px 5px 0 0 currentColor;
+}
+
+.card__like-button {
+  min-inline-size: 126px;
+  min-block-size: 34px;
+}
+
+.button__text {
+  
+  position: relative;
+  z-index: 1;
+
+  font-family: var(--accent-font, fantasy);
+  font-family:PressStart2P;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+
+  transition: color 1s ease;
+}
+
+.footer__save-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+
+  padding: 15px;
+  min-inline-size: 306px;
+  inline-size: min(80dvi, 335px);
+
+  background-color: var(--bg-color);
+}
+
+.footer__icon {
+  position: relative;
+  z-index: 1;
+
+  inline-size: 21px;
+
+  transition: color 1s ease;
+}
+
+@media (width <=375px) {
+  .footer__icon {
+    inline-size: 28px;
+  }
 }
