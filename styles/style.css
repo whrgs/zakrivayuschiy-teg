@@ -49,7 +49,7 @@
 }
 
 .header__logo {
-  font-family:'Press Start 2P';
+  font-family: 'Press Start 2P';
   font-weight: inherit;
   font-size: clamp(3.0625rem, 2.7292rem + 1.4815vw, 4.0625rem);
   text-transform: uppercase;
@@ -57,7 +57,7 @@
 
 .header__title {
   padding-block-start: 20px;
-  font-family:'Press Start 2P';
+  font-family: 'Press Start 2P';
   font-weight: inherit;
   font-size: clamp(0.875rem, 0.6875rem + 0.8333vw, 1.4375rem);
   text-transform: uppercase;
@@ -69,7 +69,7 @@
 }
 
 .theme-menu__list {
-  font-family:'Press Start 2P';
+  font-family: 'Press Start 2P';
   display: flex;
   flex-direction: column;
   gap: 0.6em;
@@ -114,7 +114,7 @@
   transition: transform 0.3s ease;
 }
 
-.theme-menu__button:hover::after, 
+.theme-menu__button:hover::after,
 .theme-menu__button:focus-visible::after {
   transform: scaleX(1);
 }
@@ -132,11 +132,6 @@
   inset-inline: -20px auto;
 
   animation: moving 0.5s infinite ease-in-out alternate;
-  /* animation-name: moving;
-  animation-duration: 0.5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  animation-direction: alternate; */
 }
 
 .main {
@@ -157,9 +152,8 @@
 
 .card__title {
   padding: 3px 10px;
-
-  font-size: inherit;
   font-family: 'Inter';
+  font-size: inherit;
   font-variation-settings: "wght" var(--bold-wght, 700);
   line-height: normal;
 }
@@ -179,7 +173,7 @@
 }
 
 .card__description {
-  font-family: 'Inter';
+  font-family:'Inter';
   display: flex;
   flex-direction: column;
   gap: 27px;
@@ -266,17 +260,14 @@
 }
 
 .button__text {
-  
   position: relative;
   z-index: 1;
 
-  font-family: var(--accent-font, fantasy);
-  font-family:'Press Start 2P';
+  font-family: var(--accent-font-light);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
-
   transition: color 1s ease;
 }
 
