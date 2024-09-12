@@ -21,7 +21,7 @@
   align-items: center;
   padding-block-start: 102px;
 
-  font-family: var(--main-font, sans-serif);
+  font-family: var(--font-primary);
   font-variation-settings: "wght" var(--normal-wght, 400);
   line-height: normal;
   color: var(--accent-color, #000);
