@@ -185,10 +185,10 @@
 }
 
 .card__controls {
+  font-family:'Press Start 2P';
   display: flex;
   justify-content: end;
   padding-block-start: 28px;
-  gap: 9px;
 }
 
 .card__icon-button {
@@ -263,7 +263,7 @@
   position: relative;
   z-index: 1;
 
-  font-family: var(--accent-font-light);
+  font-family:'Press Start 2P';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -283,6 +283,7 @@
   inline-size: min(80dvi, 335px);
 
   background-color: var(--bg-color);
+  fill: currentColor;
 }
 
 .footer__icon {
