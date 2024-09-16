@@ -13,7 +13,9 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 
 */
-.page {
+*:focus {
+  outline: none;
+}.page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
   display: flex;
@@ -77,7 +79,7 @@
 
 .theme-menu__button {
   position: relative;
-
+  background-color: transparent;
   font-family: inherit;
   font-size: 14px;
   text-transform: uppercase;
@@ -87,36 +89,28 @@
   transition: opacity 0.3s ease;
 }
 
-.theme-menu__button:hover {
-  opacity: 0.6;
-}
-
-.theme-menu__button:focus {
-  outline: none;
-  opacity: 0.6;
-}
-
 .theme-menu__button::after {
-  content: "";
-
-  position: absolute;
-  inset-inline-start: 0;
-  inset-block-end: -5px;
-
-  inline-size: 100%;
-  block-size: 2px;
-
-  background-color: var(--accent-color);
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  bottom: -1px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
   opacity: 0.6;
-
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+  position: absolute;
+}
+.theme-menu__button:focus-visible::after {
+  width: 100%;
 }
 
-.theme-menu__button:hover::after,
-.theme-menu__button:focus-visible::after {
-  transform: scaleX(1);
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button:hover::after {
+  width: 100%;
+  cursor: pointer;
 }
 
 .theme-menu__button:disabled {
@@ -124,17 +118,20 @@
   pointer-events: none;
 }
 
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
 .theme-menu__button:disabled::before {
-  content: "▶";
-
+  content: '▶';
   position: absolute;
-  inset: 0;
-  inset-inline: -20px auto;
-
-  animation: moving 0.5s infinite ease-in-out alternate;
+  left: -20px;
+  top: 0;
+  animation: pointer 0.5s ease-in-out infinite alternate;
 }
 
 .main {
+  font-family: var(--font-main);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,20 +149,17 @@
 
 .card__title {
   padding: 3px 10px;
-  font-family: 'Inter';
+  font-variation-settings: wght var(--font-weight-main);
   font-size: inherit;
   font-variation-settings: "wght" var(--bold-wght, 700);
   line-height: normal;
 }
 
 .card__picture {
-  object-fit: cover;
-  object-position: center;
-
   inline-size: 100%;
+  min-inline-size: 371px;
+  max-inline-size: 696px;
   aspect-ratio: 1/1;
-
-  border: 2px solid var(--accent-color, #000);
 }
 
 .card__content {
@@ -173,7 +167,7 @@
 }
 
 .card__description {
-  font-family:'Inter';
+  font-family: 'Inter';
   display: flex;
   flex-direction: column;
   gap: 27px;
@@ -185,19 +179,22 @@
 }
 
 .card__controls {
-  font-family:'Press Start 2P';
+  margin: 0 25px 25px 0;
+  justify-self:end;
   display: flex;
-  justify-content: end;
-  padding-block-start: 28px;
+  padding: 0;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
 }
 
 .card__icon-button {
-  block-size: 34px;
-
-  outline: 2px solid transparent;
-
-  transition: outline 0.3s ease;
+  background-color: transparent;
   border: none;
+  padding: 0;
+  inline-size: 39px;
+  block-size: 34px;
+  transition: outline 0.3s ease;
 }
 
 .card__icon-button:focus {
@@ -207,51 +204,59 @@
 .card__icon-button:focus-visible {
   outline: 2px solid var(--accent-color);
 }
-
-.button {
+.sparks {
+  opacity: 0;
+}
+.content__button {
+  padding: 0;
+  min-inline-size: 130px;
+  min-block-size: 38px;
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  inline-size: min-content;
   position: relative;
-
-  outline: 2px solid var(--accent-color);
-  transition: box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.button::before {
-  content: "";
-  position: absolute;
-  inline-size: 100%;
+.color-change {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 12.6px;
+}
+.button-hov {
+  color: var(--accent-color);
+  transition: color 1s ease, box-shadow 0.3s ease;
+}
+
+.button-hov:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+}
+
+button.button-hov:hover {
+  color: var(--bg-color);
+  fill: currentColor;
+}
+
+.button-hov::after {
+  content: '';
+  inline-size: 0;
   block-size: 100%;
-  inset-inline-start: 0;
-  inset-block-start: 0;
-
   background-color: var(--accent-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: inline-size 0.5s ease-in-out;
 
-  scale: 0 1;
-  transform-origin: left;
-  transition: scale 0.5s ease-in-out;
 }
 
-.button:hover::before {
-  scale: 1;
-}
-
-.button:hover .button__text {
-  color: var(--bg-color);
-}
-
-.button:hover .footer__icon {
-  color: var(--bg-color);
-}
-
-.button:focus-visible {
-  box-shadow: 5px 5px 0 0 currentColor;
-}
-
-.button:focus {
-  box-shadow: 5px 5px 0 0 currentColor;
-}
-
-.button:focus-within {
-  box-shadow: 5px 5px 0 0 currentColor;
+.button-hov:hover::after {
+  cursor: pointer;
+  inline-size: 100%;
 }
 
 .card__like-button {
@@ -259,18 +264,31 @@
   min-block-size: 34px;
 }
 
+.footer__button {
+  margin: 50px auto 100px auto;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+
 .button__text {
   position: relative;
   z-index: 1;
-
-  font-family:'Press Start 2P';
+  background-color: transparent;
+  font-family: var(--font-accent);
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 90%;
   transition: color 1s ease;
 }
-
 .footer__save-button {
   display: flex;
   justify-content: center;
@@ -285,18 +303,22 @@
   background-color: var(--bg-color);
   fill: currentColor;
 }
-
-.footer__icon {
+.footer__button-text {
+  padding-block-start: 3px;
+}
+.footer__svg {
+  inline-size: 28px;
+  block-size: 28px;
+  font-family: var(--font-accent);
+  fill: currentColor;
   position: relative;
   z-index: 1;
-
-  inline-size: 21px;
-
-  transition: color 1s ease;
 }
 
-@media (width <=375px) {
-  .footer__icon {
-    inline-size: 28px;
+@media (375px < width) {
+  .footer__button {
+    flex-flow: row;
+    gap: 8px;
+    padding: 15px 21px 15px 19px;
   }
 }
