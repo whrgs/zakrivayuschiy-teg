@@ -38,19 +38,16 @@
 }
 
 .header {
-  font-family: var(--font-accent);
-  margin: 100px auto;
-  min-inline-size: 375px;
-  max-inline-size: 700px;
-  padding-block: 25px;
-  block-size: auto;
-  font-weight: 400;
-  font-size: 14px;
-  display: grid;
-  justify-content: center;
+  display: flex;
   gap: 20px;
-  grid-template-rows: clamp(9rem, 7.571rem + 3.81vw, 11rem) min-content min-content;
-  text-transform: uppercase;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-accent, serif);
+  background-color: var(--bg-color, #fff);
+  border: 2px solid var(--accent-color);
+  margin-block: 100px;
+  padding-block-start: 135px;
+  padding-block-end: 12px;
 }
 .background__content {
   background-color: var(--bg-color);
@@ -144,7 +141,7 @@
   font-family: var(--font-main);
 }
 
-.content_section {
+.content__section {
   min-inline-size: 375px;
   max-inline-size: 700px;
   margin: 0 auto;
