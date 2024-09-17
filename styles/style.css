@@ -46,7 +46,7 @@
   background-color: var(--bg-color, #fff);
   border: 2px solid var(--accent-color);
   margin-block: 100px;
-  padding-block-start: 135px;
+  padding: 135px;
   padding-block-end: 12px;
 }
 .background__content {
@@ -59,6 +59,7 @@
   line-height: 65px;
   text-transform: uppercase;
   outline: none;
+  margin-bottom: 10px;
 }
 
 .header__title {
@@ -70,9 +71,8 @@
 }
 
 .theme-menu {
-  justify-self: center;
   padding-block-start: 5px;
-  padding-inline-start: 18px;
+  padding-inline-start: 8px;
 }
 
 .theme-menu__list {
