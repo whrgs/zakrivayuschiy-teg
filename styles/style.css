@@ -208,6 +208,35 @@
   outline: 2px solid var(--accent-color);
 }
 
+.filter_saturate-brightness {
+  filter: saturate(0) brightness(70%);
+}
+
+.filter_hue-rotate {
+  filter: hue-rotate(300deg);
+}
+
+.filter_sepia-contrast {
+  filter: sepia(75%) contrast(65%);
+}
+
+.filter_contrast {
+  filter: contrast(50%);
+}
+.filter_blur {
+  filter: blur(4px);
+}
+.filter_grayscale {
+  filter: grayscale(0.8);
+}
+.filter_opacity {
+  filter: opacity(0.8);
+}
+
+.filter_invert {
+  filter: invert(0.7);
+}
+
 .sparks {
   opacity: 0;
 }
