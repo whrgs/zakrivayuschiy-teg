@@ -1,1 +1,16 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --font-main: 'Inter-Variable', sans-serif;
+  --font-accent: 'Press Start 2P', sans-serif,fantasy;
+  --font-weight-main: 700;
+  --font-weight-main-text: 400;
+  --bg-color: #fff;
+  --bg-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, transparent 2px 4px),
+              repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
+              linear-gradient(rgba(231, 231, 231, 1) 0.01%, rgba(26, 26, 26, 1));
+  --bg-image: url(../svg/pattern-light.svg);
+  --pointer-disabled: url(../images/pointer-light.png);
+  --name: #000;
+  --fill: #ff0000;
+}
+
