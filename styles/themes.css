@@ -24,6 +24,7 @@
   --font-variation-bold: 785;
   --accent-color: #00cc14;
   --difference-color: #00cc14;
+  --name:#00cc14;
 }
 
 @media (prefers-color-scheme: light) {
@@ -49,5 +50,6 @@
     --font-variation-bold: 785;
     --accent-color: #00cc14;
     --difference-color: #00cc14;
+    --name:#00cc14;
   }
 }
